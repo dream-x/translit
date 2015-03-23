@@ -4,9 +4,11 @@ GEM
     riot (0.12.5)
       rr
     rr (1.0.4)
+    unicode_utils (1.4.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   riot
+  unicode_utils

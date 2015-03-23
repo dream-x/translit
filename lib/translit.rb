@@ -1,5 +1,7 @@
 # coding: utf-8
 
+require 'unicode_utils'
+
 module Translit
   def self.convert!(text, enforce_language = nil)
     language = if enforce_language
@@ -21,7 +23,8 @@ module Translit
   end
 
   def self.convert_slug(text, enforce_language = nil)
-    convert!(text.dup.gsub(/\s+/,'-').downcase, enforce_language)
+    text = UnicodeUtils.downcase(text.gsub(/\s+/,'-'))
+    convert!(text.dup, enforce_language)
   end
 
 private
