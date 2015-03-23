@@ -20,6 +20,10 @@ module Translit
     convert!(text.dup, enforce_language)
   end
 
+  def self.convert_slug(text, enforce_language = nil)
+    convert!(text.dup.gsub(/\s+/,'-').downcase, enforce_language)
+  end
+
 private
   def self.create_russian_map
     self.english.inject({}) do |acc, tuple|
