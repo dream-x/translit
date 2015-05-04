@@ -23,9 +23,10 @@ module Translit
   end
 
   def self.convert_slug(text, enforce_language = nil)
-    text = UnicodeUtils.downcase(text.gsub(/\s+/,'-'))
+    text = UnicodeUtils.downcase(text.gsub(/\s+/,'-').gsub(/[.][,]['][\"][;][:]/, ""))
     convert!(text.dup, enforce_language)
   end
+
 
 private
   def self.create_russian_map
